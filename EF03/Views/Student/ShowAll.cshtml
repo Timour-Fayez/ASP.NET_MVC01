@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Student>
+
+<h2>قائمة الطلاب</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>الرقم (Id)</th>
+            <th>الاسم (Name)</th>
+            <th>العمر (Age)</th>
+            <th>القسم (Department)</th>
+            <th>التفاصيل</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Age</td>
+                <td>@student.Department?.Name</td>
+                <td>
+                    <a href="/Student/ShowDetails?id=@student.Id" class="btn btn-primary">عرض التفاصيل</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
